@@ -1,3 +1,4 @@
+import {MaterialUIComponentsNavigation} from 'app/main/documentation/material-ui-components/MaterialUIComponentsNavigation';
 import {authRoles} from 'app/auth';
 import i18next from 'i18next';
 import en from './navigation-i18n/en';
@@ -26,7 +27,7 @@ const navigationConfig = [
                 'title': 'Create Challenge',
                 'type' : 'item',
                 'url'  : '/apps/challenge-creator/create'
-            },
+            }
         ]
     },
     {
