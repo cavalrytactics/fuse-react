@@ -6,7 +6,7 @@ script:
 - yarn run build
 deploy:
   provider: firebase
-  project: "stb-client-prod"
+  project: "thebox-client"
   message: travis deployment to firebase hosting
   token:
     secure: AXDuegLDKe/FB+yQYSoTpOQPoke7u4q65K1FnJk4frLFlP3CRX+rfz/QpHW2csPlnClyu6LbB4W1RfmsHRmnZ59eRdKFE+l6//A2ispAPJnYHAm0b+Hw7bm9Js0ZhcOAkNgikY3yGjoMqtZpPQwWza3BQ92AgRW17ngsD65dSzeWg5pOauM32EQyncjfxC4kKd5vINlAcXpfIYwrAya25uvOUcvi10iCNJR4J4THFTs0eJN835JBjxRCG1Q0TslTDYRgS5xgn5lHs1OFQIgRcUqb838Ulr5EfoYiu/VQOPtUQaRkuxX2SpUKxJUiD3tTYgbf3/a9KqVEAl5Zv8Ldo0OzOLJ/MiPZNJgdR2lzMlBAk4Y6eOrBKIYp6VUTuD5r61d0gLvvrbO4NJPZTpQvxzMOoM3XAWvhEYWqOSU2IhyW/FGJZhRlfc7nqAH1QIqBX5D0zMkYbJWS1JO2x7BS2ddVpsJacNAZKH/+3oFP+7X6iRQSldQsuhI0kdaVRu2yfok6uDWhC2y0WU4i1DUqa866nYkxiclKIHQf8Da3hIaFQNlM9eHay6Td2dhmcHyc+2PdYBXSE8isiduIBT45f2WN6QdTzQi82MQy0f6j6/Vh0vwdCK+BAdG/JpMZ35t7o9DRF5Ut45NNMk/OYrfs6oLMpHcKdgvZA/bQLrqEQOI=
