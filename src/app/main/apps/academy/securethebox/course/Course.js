@@ -68,7 +68,7 @@ function Course(props) {
     function manageChallenge(clusterName, userName, action, emailAddress) {
         console.log(clusterName, userName, action)
         let data = JSON.stringify({"challenge": { "clusterName": clusterName, "userName": userName, "action": action, "emailAddress": emailAddress }})
-        axios.post('http://localhost:5000/api/v1/kubernetes/challenges/1', data, {
+        axios.post('/api/v1/kubernetes/challenges/1', data, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -77,7 +77,7 @@ function Course(props) {
     function testGithub(clusterName, userName, action, emailAddress) {
         console.log(clusterName, userName, action)
         let data = JSON.stringify({"challenge": { "clusterName": clusterName, "userName": userName, "action": action, "emailAddress": emailAddress }})
-        axios.post('http://localhost:5000/api/v1/airflow/challenges/github', data, {
+        axios.post('/api/v1/airflow/challenges/github', data, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -87,7 +87,7 @@ function Course(props) {
     function testJuiceshop(clusterName, userName, action, emailAddress) {
         console.log(clusterName, userName, action)
         let data = JSON.stringify({"challenge": { "clusterName": clusterName, "userName": userName, "action": action, "emailAddress": emailAddress }})
-        axios.post('http://localhost:5000/api/v1/airflow/challenges/juiceshop', data, {
+        axios.post('/api/v1/airflow/challenges/juiceshop', data, {
             headers: {
                 'Content-Type': 'application/json',
             }

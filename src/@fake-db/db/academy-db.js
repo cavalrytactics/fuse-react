@@ -659,21 +659,21 @@ const academyDB = {
     ]
 };
 
-mock.onGet('/api/academy-app/categories').reply(() => {
+mock.onGet('/api/v1/academy/categories').reply(() => {
     return [200, academyDB.categories];
 });
 
-mock.onGet('/api/academy-app/courses').reply(() => {
+mock.onGet('/api/v1/academy/courses').reply(() => {
     return [200, academyDB.courses.map((_course) => _.omit(_course, ['steps']))];
 });
 
-mock.onGet('/api/academy-app/course').reply((request) => {
+mock.onGet('/api/v1/academy/course').reply((request) => {
     const {courseId} = request.params;
     const response = _.find(academyDB.courses, {id: courseId});
     return [200, response];
 });
 
-mock.onPost('/api/academy-app/course/save').reply((request) => {
+mock.onPost('/api/v1/academy/course/save').reply((request) => {
     const data = JSON.parse(request.data);
     let course = null;
 
@@ -698,7 +698,7 @@ mock.onPost('/api/academy-app/course/save').reply((request) => {
     return [200, course];
 });
 
-mock.onPost('/api/academy-app/course/update').reply((request) => {
+mock.onPost('/api/v1/academy/course/update').reply((request) => {
     const data = JSON.parse(request.data);
     academyDB.courses = academyDB.courses.map(_course => {
         if ( _course.id === data.id )
