@@ -3,7 +3,7 @@ node_js:
 - node
 script:
 - yarn install
-- yarn run build
+- yarn build
 deploy:
   provider: firebase
   project: securethebox-client
