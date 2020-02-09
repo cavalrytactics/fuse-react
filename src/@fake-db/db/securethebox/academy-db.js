@@ -2,6 +2,8 @@ import mock from '../../mock';
 // import _ from '@lodash';
 import {amber, blue, blueGrey, green} from '@material-ui/core/colors';
 
+const baseURL = "https://cloud-run.securethebox.us"
+
 const demoSteps = [
     {
         'id'     : '0',
@@ -153,22 +155,22 @@ const academyDB = {
     ]
 };
 
-// mock.onGet('/api/academy-app/categories').reply(() => {
+// mock.onGet(baseURL+'/api/academy-app/categories').reply(() => {
 //     return [200, academyDB.categories];
 // });
 
-// mock.onGet('/api/academy-app/courses').reply(() => {
+// mock.onGet(baseURL+'/api/academy-app/courses').reply(() => {
 //     return [200, academyDB.courses.map((_course) => _.omit(_course, ['steps']))];
 // });
 
-// mock.onGet('/api/academy-app/course').reply((request) => {
+// mock.onGet(baseURL+'/api/academy-app/course').reply((request) => {
 //     const {courseId} = request.params;
 //     const response = _.find(academyDB.courses, {id: courseId});
 //     console.log(response)
 //     return [200, response];
 // });
 
-mock.onPost('/api/v1/academy/course/save').reply((request) => {
+mock.onPost(baseURL+'/api/v1/academy/course/save').reply((request) => {
     const data = JSON.parse(request.data);
     let course = null;
 
@@ -193,7 +195,7 @@ mock.onPost('/api/v1/academy/course/save').reply((request) => {
     return [200, course];
 });
 
-// mock.onPost('/api/v1/academy/course/update').reply((request) => {
+// mock.onPost(baseURL+'/api/v1/academy/course/update').reply((request) => {
 //     const data = JSON.parse(request.data);
 //     academyDB.courses = academyDB.courses.map(_course => {
 //         if ( _course.id === data.id )

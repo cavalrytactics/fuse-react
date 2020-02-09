@@ -1,11 +1,13 @@
 import axios from 'axios';
 
+export const baseURL = "https://cloud-run.securethebox.us"
+
 export const GET_COURSES = '[ACADEMY APP] GET COURSES';
 export const GET_CATEGORIES = '[ACADEMY APP] GET CATEGORIES';
 
 export function getCourses()
 {
-    const request = axios.get('/api/v1/academy/courses');
+    const request = axios.get(baseURL+'/api/v1/academy/courses');
 
     return (dispatch) =>
         request.then((response) =>
@@ -18,7 +20,7 @@ export function getCourses()
 
 export function getCategories()
 {
-    const request = axios.get('/api/v1/academy/categories');
+    const request = axios.get(baseURL+'/api/v1/academy/categories');
 
     return (dispatch) =>
         request.then((response) =>

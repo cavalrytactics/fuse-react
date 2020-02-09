@@ -29,6 +29,8 @@ import STBRubrik from './STBRubrikCategories/STBRubrik';
 import { OnChange } from 'react-final-form-listeners'
 import { FieldArray } from 'react-final-form-arrays'
 
+const baseURL = "https://cloud-run.securethebox.us"
+
 const WhenFieldChanges = ({ field, becomes, set, to }) => (
     <Field name={set} subscription={{}}>
         {(
@@ -97,7 +99,7 @@ class Edit extends Component {
 
     componentDidMount() {
         // Gett All Applications
-        axios.get('/api/v1/applications')
+        axios.get(baseURL+'/api/v1/applications')
             .then((r) => {
                 var listApps = []
                 var listCategories = {}
@@ -154,7 +156,7 @@ class Edit extends Component {
     }
 
     submitChallengePayload() {
-        axios.post('/api/v1/challenges', this.state.course_payload)
+        axios.post(baseURL+'/api/v1/challenges', this.state.course_payload)
             .then((r) => {
                 console.log(r)
                 return null
@@ -493,7 +495,7 @@ class Edit extends Component {
         const onSubmit = async values => {
             let challengeDict = {}
             challengeDict["challenge"] = values
-            axios.post('/api/v1/challenges', challengeDict)
+            axios.post(baseURL+'/api/v1/challenges', challengeDict)
                 .then((r) => {
                     console.log(r)
                 })

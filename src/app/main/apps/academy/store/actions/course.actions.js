@@ -5,9 +5,11 @@ export const GET_COURSE = '[ACADEMY APP] GET COURSE';
 export const SAVE_COURSE = '[ACADEMY APP] SAVE COURSE';
 export const UPDATE_COURSE = '[ACADEMY APP] UPDATE COURSE';
 
+export const baseURL = "https://cloud-run.securethebox.us"
+
 export function getCourse(params)
 {
-    const request = axios.get('/api/v1/academy/course', {params});
+    const request = axios.get(baseURL+'/api/v1/academy/course', {params});
 
     return (dispatch) =>
         request.then((response) =>
@@ -21,7 +23,7 @@ export function getCourse(params)
 export function saveCourse(data)
 {
 
-    const request = axios.post('/api/v1/academy/course/save', data);
+    const request = axios.post(baseURL+'/api/v1/academy/course/save', data);
 
     return (dispatch) =>
         request.then((response) => {
@@ -42,7 +44,7 @@ export function updateCourse(data)
     return (dispatch, getState) => {
 
         const {id} = getState().academyApp.course;
-        const request = axios.post('/api/v1/academy/course/update', {id, ...data});
+        const request = axios.post(baseURL+'/api/v1/academy/course/update', {id, ...data});
 
         request.then((response) => {
 

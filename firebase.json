@@ -8,7 +8,14 @@
     ],
     "rewrites": [
       {
-        "source": "!/api/analytics/**",
+        "source": "/api/**",
+        "run": {
+          "serviceId": "securethebox-server",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "!/api/**",
         "destination": "/index.html"
       }
     ]
