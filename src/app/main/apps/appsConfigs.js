@@ -1,29 +1,11 @@
-import AcademyAppConfig from './academy/AcademyAppConfig';
-import CalendarAppConfig from './calendar/CalendarAppConfig';
-import ChatAppConfig from './chat/ChatAppConfig';
-import ContactsAppConfig from './contacts/ContactsAppConfig';
-import AnalyticsDashboardAppConfig from './dashboards/analytics/AnalyticsDashboardAppConfig';
-import ProjectDashboardAppConfig from './dashboards/project/ProjectDashboardAppConfig';
-import ECommerceAppConfig from './e-commerce/ECommerceAppConfig';
-import FileManagerAppConfig from './file-manager/FileManagerAppConfig';
-import MailAppConfig from './mail/MailAppConfig';
-import NotesAppConfig from './notes/NotesAppConfig';
-import ScrumboardAppConfig from './scrumboard/ScrumboardAppConfig';
-import TodoAppConfig from './todo/TodoAppConfig';
+import {AcademyAppConfig} from './academy/AcademyAppConfig';
+import {ChallengeCreatorAppConfig} from './securethebox/challenge-creator/ChallengeCreatorAppConfig';
+import {SubscriptionConfig} from './securethebox/subscription/SubscriptionConfig';
 
-const appsConfigs = [
-	AnalyticsDashboardAppConfig,
-	ProjectDashboardAppConfig,
-	MailAppConfig,
-	TodoAppConfig,
-	FileManagerAppConfig,
-	ContactsAppConfig,
-	CalendarAppConfig,
-	ChatAppConfig,
-	ECommerceAppConfig,
-	ScrumboardAppConfig,
-	AcademyAppConfig,
-	NotesAppConfig
+export const appsConfigs = [
+    SubscriptionConfig,
+    ChallengeCreatorAppConfig,
+    AcademyAppConfig
 ];
 
 export default appsConfigs;

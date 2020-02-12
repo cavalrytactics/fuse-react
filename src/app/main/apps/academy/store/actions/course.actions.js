@@ -5,20 +5,23 @@ export const GET_COURSE = '[ACADEMY APP] GET COURSE';
 export const SAVE_COURSE = '[ACADEMY APP] SAVE COURSE';
 export const UPDATE_COURSE = '[ACADEMY APP] UPDATE COURSE';
 
-export function getCourse(params) {
-	const request = axios.get('/api/academy-app/course', { params });
+export const baseURL = "https://cloud-run.securethebox.us"
 
-	return dispatch =>
-		request.then(response =>
-			dispatch({
-				type: GET_COURSE,
-				payload: response.data
-			})
-		);
+export function getCourse(params)
+{
+    const request = axios.get(baseURL+'/api/v1/academy/course', {params});
+
+    return (dispatch) =>
+        request.then((response) =>
+            dispatch({
+                type   : GET_COURSE,
+                payload: response.data
+            })
+        );
 }
 
 export function saveCourse(data) {
-	const request = axios.post('/api/academy-app/course/save', data);
+	const request = axios.post(baseURL+'/api/academy-app/course/save', data);
 
 	return dispatch =>
 		request.then(response => {
@@ -31,10 +34,11 @@ export function saveCourse(data) {
 		});
 }
 
+
 export function updateCourse(data) {
 	return (dispatch, getState) => {
 		const { id } = getState().academyApp.course;
-		const request = axios.post('/api/academy-app/course/update', { id, ...data });
+		const request = axios.post(baseURL+'/api/academy-app/course/update', { id, ...data });
 
 		request.then(response => {
 			dispatch(showMessage({ message: 'Course Updated' }));

@@ -2,6 +2,8 @@ import _ from '@lodash';
 import { amber, blue, blueGrey, green } from '@material-ui/core/colors';
 import mock from '../mock';
 
+const baseURL = "https://cloud-run.securethebox.us"
+
 const demoSteps = [
 	{
 		id: '0',
@@ -670,6 +672,7 @@ const academyDB = {
 	]
 };
 
+<<<<<<< HEAD
 mock.onGet('/api/academy-app/categories').reply(() => {
 	return [200, academyDB.categories];
 });
@@ -687,6 +690,25 @@ mock.onGet('/api/academy-app/course').reply(request => {
 mock.onPost('/api/academy-app/course/save').reply(request => {
 	const data = JSON.parse(request.data);
 	let course = null;
+=======
+mock.onGet(baseURL+'/api/v1/academy/categories').reply(() => {
+    return [200, academyDB.categories];
+});
+
+mock.onGet(baseURL+'/api/v1/academy/courses').reply(() => {
+    return [200, academyDB.courses.map((_course) => _.omit(_course, ['steps']))];
+});
+
+mock.onGet(baseURL+'/api/v1/academy/course').reply((request) => {
+    const {courseId} = request.params;
+    const response = _.find(academyDB.courses, {id: courseId});
+    return [200, response];
+});
+
+mock.onPost(baseURL+'/api/v1/academy/course/save').reply((request) => {
+    const data = JSON.parse(request.data);
+    let course = null;
+>>>>>>> master-holder
 
 	academyDB.courses = academyDB.courses.map(_course => {
 		if (_course.id === data.id) {
@@ -704,14 +726,15 @@ mock.onPost('/api/academy-app/course/save').reply(request => {
 	return [200, course];
 });
 
-mock.onPost('/api/academy-app/course/update').reply(request => {
-	const data = JSON.parse(request.data);
-	academyDB.courses = academyDB.courses.map(_course => {
-		if (_course.id === data.id) {
-			return _.merge(_course, data);
-		}
-		return _course;
-	});
+mock.onPost(baseURL+'/api/v1/academy/course/update').reply((request) => {
+    const data = JSON.parse(request.data);
+    academyDB.courses = academyDB.courses.map(_course => {
+        if ( _course.id === data.id )
+        {
+            return _.merge(_course, data);
+        }
+        return _course;
+    });
 
 	return [200, data];
 });
