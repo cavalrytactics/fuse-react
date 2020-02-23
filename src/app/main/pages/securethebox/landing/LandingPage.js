@@ -187,12 +187,11 @@ function LandingPage() {
 								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									<ul>
 										<li>
-											<span style={{ color: "#66D9EF" }}>Secure The Box</span> is an online platform allowing an individual or team to access a <span style={{ color: "#66D9EF" }}>simulated business environment</span> consisting of several services.
-									</li>
-										<br />
+											Secure The Box s an online platform allowing an individual or team to access a simulated business environment consisting of several services.
+										</li>
 										<li>
-											The objective is to <span style={{ color: "#66D9EF" }}>secure the environment</span> and <span style={{ color: "#66D9EF" }}>solve problems</span> while being attacked by industry professional <span style={{ color: "#F92672" }}>Penetration Testers</span> and <span style={{ color: "#F92672" }}>scripted Bots</span>.
-									</li>
+											The objective is to secure the environment and solve problems while being attacked by industry professional Penetration Testers and scripted Bots.
+										</li>
 									</ul>
 								</div>
 							</Grid>
@@ -256,9 +255,8 @@ function LandingPage() {
 								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									<ul>
 										<li>
-											Join <span style={{ color: "#A6E22E" }}>Secure The Box</span> <span style={{ color: "#A6E22E" }}>BETA</span>  with an invite code.
-									</li>
-										<br />
+											Join Secure The Box BETA with an invite code.
+										</li>
 										<li>
 											<InviteButton />
 										</li>
@@ -283,7 +281,7 @@ function LandingPage() {
 							</div>
 								<br />
 								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-									<span style={{ color: "#F92672" }}>Cavalry Tactics, Inc.</span>
+									Cavalry Tactics, Inc.
 								</div>
 								<br />
 								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
