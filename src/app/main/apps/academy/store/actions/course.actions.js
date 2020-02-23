@@ -21,7 +21,7 @@ export function getCourse(params)
 }
 
 export function saveCourse(data) {
-	const request = axios.post(baseURL+'/api/academy-app/course/save', data);
+	const request = axios.post(baseURL+'/api/v1/academy/course/save', data);
 
 	return dispatch =>
 		request.then(response => {
@@ -38,7 +38,7 @@ export function saveCourse(data) {
 export function updateCourse(data) {
 	return (dispatch, getState) => {
 		const { id } = getState().academyApp.course;
-		const request = axios.post(baseURL+'/api/academy-app/course/update', { id, ...data });
+		const request = axios.post(baseURL+'/api/v1/academy/course/update', { id, ...data });
 
 		request.then(response => {
 			dispatch(showMessage({ message: 'Course Updated' }));

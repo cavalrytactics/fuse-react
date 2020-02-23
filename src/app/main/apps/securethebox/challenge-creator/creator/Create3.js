@@ -28,6 +28,8 @@ import category_systems_engineering from './STBRubrikCategories/category_systems
 import STBRubrik from './STBRubrikCategories/STBRubrik';
 import { OnChange } from 'react-final-form-listeners'
 import { FieldArray } from 'react-final-form-arrays'
+// import { useQuery } from "@apollo/react-hooks";
+// import gql from "graphql-tag";
 
 const baseURL = "https://cloud-run.securethebox.us"
 
@@ -68,6 +70,62 @@ const Condition = ({ when, is, children }) => (
     </Field>
 )
 
+// const ALL_CATEGORIES = gql`
+//     {
+//         allCategories{
+//             edges {
+//                 node {
+//                     id,
+//                     value,
+//                     label,
+//                     color
+//                 }
+//             }
+//         }
+//     }
+// `;
+
+// function AllCategories() {
+//     const { loading, error, data } = useQuery(ALL_CATEGORIES);
+
+//     if (loading) return <p>Loading...</p>;
+//     if (error) return <p>Error :(</p>;
+//     data["allCategories"]["edges"].map((v, i) => {
+//         console.log(v["node"])
+//     })
+//     return (
+//         <div><p>hello</p></div>
+//     )
+// }
+
+// function renderAppCategoryHook(props) {
+//     const { loading, error, data } = useQuery(ALL_CATEGORIES);
+//     if (loading) return <p>Loading...</p>;
+//     if (error) return <p>Error :(</p>;
+//     if (data) return data["allCategories"]["edges"].map((value, index) => {
+//         if (props.category === value["node"]["value"]) {
+//             return (
+//                 <FormControlLabel
+//                     key={value["node"]["id"]}
+//                     label={value["node"]["label"]}
+//                     control={
+//                         <Field
+//                             name={`steps[${props.step_index}].apps[${props.category}]`}
+//                             component={Radio}
+//                             type="radio"
+//                             value={value["node"]["value"]}
+//                         />
+//                     }
+//                 />
+//             )
+//         }
+//         return null
+//     }
+//     )
+// }
+
+
+
 class Create3 extends Component {
     constructor(props) {
         super(props);
@@ -99,7 +157,7 @@ class Create3 extends Component {
 
     componentDidMount() {
         // Gett All Applications
-        axios.get(baseURL+'/api/v1/applications')
+        axios.get(baseURL + '/api/v1/applications')
             .then((r) => {
                 var listApps = []
                 var listCategories = {}
@@ -156,7 +214,7 @@ class Create3 extends Component {
     }
 
     submitChallengePayload() {
-        axios.post(baseURL+'/api/v1/challenges', this.state.course_payload)
+        axios.post(baseURL + '/api/v1/challenges', this.state.course_payload)
             .then((r) => {
                 console.log(r)
                 return null
@@ -292,7 +350,7 @@ class Create3 extends Component {
                                                 <FormControl component="fieldset">
                                                     <FormLabel component="legend"><h3>{this.state.appCategories[e]}</h3></FormLabel>
                                                     <RadioGroup>
-                                                        {this.renderAppCategory(e, index)}
+                                                        {this.renderAppCategory(e,index)}
                                                     </RadioGroup>
                                                 </FormControl>
                                             </Grid>
@@ -495,7 +553,7 @@ class Create3 extends Component {
         const onSubmit = async values => {
             let challengeDict = {}
             challengeDict["challenge"] = values
-            axios.post(baseURL+'/api/v1/challenges', challengeDict)
+            axios.post(baseURL + '/api/v1/challenges', challengeDict)
                 .then((r) => {
                     console.log(r)
                 })

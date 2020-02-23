@@ -5,9 +5,9 @@ function FuseSplashScreen() {
 		<div id="fuse-splash-screen">
 			<div className="center">
 				<div className="logo">
-					<img width="128" src="assets/images/logos/fuse.svg" alt="logo" />
+					{/* <img width="128" src="assets/images/logos/fuse.svg" alt="logo" /> */}
 				</div>
-				<div className="spinner-wrapper">
+				{/* <div className="spinner-wrapper">
 					<div className="spinner">
 						<div className="inner">
 							<div className="gap" />
@@ -19,7 +19,7 @@ function FuseSplashScreen() {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

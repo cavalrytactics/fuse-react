@@ -16,6 +16,20 @@ import AppContext from './AppContext';
 import { Auth } from './auth';
 import routes from './fuse-configs/routesConfig';
 import store from './store';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { HttpLink } from "apollo-link-http";
+
+const cache = new InMemoryCache();
+const link = new HttpLink({
+	uri: "https://cloud-run.securethebox.us/graphql"
+});
+
+const client = new ApolloClient({
+	cache,
+	link
+});
 
 const jss = create({
 	...jssPreset(),
@@ -32,21 +46,23 @@ const App = () => {
 				routes
 			}}
 		>
-			<StylesProvider jss={jss} generateClassName={generateClassName}>
-				<Provider store={store}>
-					<MuiPickersUtilsProvider utils={MomentUtils}>
-						<Auth>
-							<Router history={history}>
-								<FuseAuthorization>
-									<FuseTheme>
-										<FuseLayout />
-									</FuseTheme>
-								</FuseAuthorization>
-							</Router>
-						</Auth>
-					</MuiPickersUtilsProvider>
-				</Provider>
-			</StylesProvider>
+			<ApolloProvider client={client}>
+				<StylesProvider jss={jss} generateClassName={generateClassName}>
+					<Provider store={store}>
+						<MuiPickersUtilsProvider utils={MomentUtils}>
+							<Auth>
+								<Router history={history}>
+									<FuseAuthorization>
+										<FuseTheme>
+											<FuseLayout />
+										</FuseTheme>
+									</FuseAuthorization>
+								</Router>
+							</Auth>
+						</MuiPickersUtilsProvider>
+					</Provider>
+				</StylesProvider>
+			</ApolloProvider>
 		</AppContext.Provider>
 	);
 };

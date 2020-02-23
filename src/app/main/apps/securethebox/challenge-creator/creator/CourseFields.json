@@ -17,28 +17,51 @@
         "component": "select",
         "items": [
             {
-                "value": "web",
-                "label": "Web"
+                "value": "infrastructure_security_engineer",
+                "label": "Infrastructure Security Engineer"
             },
             {
-                "value": "incident_response",
-                "label": "Incident Response"
+                "value": "application_security_engineer",
+                "label": "Application Security Engineer"
             },
             {
-                "value": "threat_detection",
-                "label": "Threat Detection"
+                "value": "cloud_security_engineer",
+                "label": "Cloud Security Engineer"
             },
             {
-                "value": "vulnerability_management",
-                "label": "Vulnerability Management"
+                "value": "network_security_engineer",
+                "label": "Network Security Engineer"
             },
             {
-                "value": "security_analyst",
-                "label": "Security Analyst"
+                "value": "incident_responder",
+                "label": "Incident Responder"
             },
             {
-                "value": "security_engineer",
-                "label": "Security Engineer"
+                "value": "forensic_analyst",
+                "label": "Forensic Analyst"
+            }
+        ]
+    },
+    {
+        "label": "Select Individual Contributer Level",
+        "name": "level",
+        "component": "select",
+        "items": [
+            {
+                "value": 1,
+                "label": "0 YOE / IC 1-2 / Entry Level"
+            },
+            {
+                "value": 2,
+                "label": "1-3 YOE / IC 2-4 / Junior"
+            },
+            {
+                "value": 4,
+                "label": "2-5 YOE / IC 4-6 / Senior"
+            },
+            {
+                "value": 4,
+                "label": "5-10 YOE / IC 6-10 / Staff or Principal"
             }
         ]
     },

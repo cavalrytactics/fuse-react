@@ -16,8 +16,8 @@ function FuseLoading(props) {
 	}
 
 	return (
-		<div className="flex flex-1 flex-col items-center justify-center">
-			<Typography className="text-20 mb-16" color="textSecondary">
+		<div className="flex flex-1 flex-col items-center justify-center" style={{backgroundColor:"#1e1f1c"}}>
+			<Typography className="text-20 mb-16" color="textSecondary" style={{color:"white", letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\""}}>
 				Loading...
 			</Typography>
 			<LinearProgress className="w-xs" color="secondary" />

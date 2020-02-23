@@ -22,8 +22,14 @@ import PricingStyle3PageConfig from './pricing/style-3/PricingStyle3PageConfig';
 import ProfilePageConfig from './profile/ProfilePageConfig';
 import ClassicSearchPageConfig from './search/classic/ClassicSearchPageConfig';
 import ModernSearchPageConfig from './search/modern/ModernSearchPageConfig';
+import SecuretheboxComingSoonPageConfig from './securethebox/coming-soon/ComingSoonPageConfig';
+import SecuretheboxLandingPageConfig from './securethebox/landing/LandingPageConfig';
+import SecuretheboxInvitePageConfig from './securethebox/invite/InvitePageConfig';
 
 const pagesConfigs = [
+	SecuretheboxInvitePageConfig,
+	SecuretheboxLandingPageConfig,
+	SecuretheboxComingSoonPageConfig,
 	LoginPageConfig,
 	RegisterPageConfig,
 	ResetPasswordPageConfig,
