@@ -7,21 +7,21 @@ import Formsy from 'formsy-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-function FirebaseLoginTab(props) {
+function FirebaseRegisterTab(props) {
 	const dispatch = useDispatch();
-	const login = useSelector(({ auth }) => auth.login);
+	const register = useSelector(({ auth }) => auth.register);
 
 	const [isFormValid, setIsFormValid] = useState(false);
 	const formRef = useRef(null);
 
 	useEffect(() => {
-		if (login.error && (login.error.username || login.error.password)) {
+		if (register.error && (register.error.username || register.error.password || register.error.email)) {
 			formRef.current.updateInputsWithError({
-				...login.error
+				...register.error
 			});
 			disableButton();
 		}
-	}, [login.error]);
+	}, [register]);
 
 	function disableButton() {
 		setIsFormValid(false);
@@ -32,7 +32,7 @@ function FirebaseLoginTab(props) {
 	}
 
 	function handleSubmit(model) {
-		dispatch(authActions.submitLoginWithFireBase(model));
+		dispatch(authActions.registerWithFirebase(model));
 	}
 
 	return (
@@ -47,13 +47,35 @@ function FirebaseLoginTab(props) {
 				<TextFieldFormsy
 					className="mb-16"
 					type="text"
-					name="username"
-					label="Email"
+					name="displayName"
+					label="Display name"
 					validations={{
 						minLength: 4
 					}}
 					validationErrors={{
 						minLength: 'Min character length is 4'
+					}}
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position="end">
+								<Icon className="text-20" color="action">
+									person
+								</Icon>
+							</InputAdornment>
+						)
+					}}
+					variant="outlined"
+					required
+				/>
+
+				<TextFieldFormsy
+					className="mb-16"
+					type="text"
+					name="email"
+					label="Email"
+					validations="isEmail"
+					validationErrors={{
+						isEmail: 'Please enter a valid email'
 					}}
 					InputProps={{
 						endAdornment: (
@@ -73,11 +95,31 @@ function FirebaseLoginTab(props) {
 					type="password"
 					name="password"
 					label="Password"
-					validations={{
-						minLength: 4
-					}}
+					validations="equalsField:password-confirm"
 					validationErrors={{
-						minLength: 'Min character length is 4'
+						equalsField: 'Passwords do not match'
+					}}
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position="end">
+								<Icon className="text-20" color="action">
+									vpn_key
+								</Icon>
+							</InputAdornment>
+						)
+					}}
+					variant="outlined"
+					required
+				/>
+
+				<TextFieldFormsy
+					className="mb-16"
+					type="password"
+					name="password-confirm"
+					label="Confirm Password"
+					validations="equalsField:password"
+					validationErrors={{
+						equalsField: 'Passwords do not match'
 					}}
 					InputProps={{
 						endAdornment: (
@@ -96,16 +138,15 @@ function FirebaseLoginTab(props) {
 					type="submit"
 					variant="contained"
 					color="primary"
-					className="w-full mx-auto normal-case mt-16"
-					aria-label="LOG IN"
+					className="w-full mx-auto mt-16 normal-case"
+					aria-label="REGISTER WITH FIREBASE"
 					disabled={!isFormValid}
-					value="firebase"
 				>
-					Log in
+					Register with Firebase
 				</Button>
 			</Formsy>
 		</div>
 	);
 }
 
-export default FirebaseLoginTab;
+export default FirebaseRegisterTab;

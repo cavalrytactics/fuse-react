@@ -1,21 +1,26 @@
 import React from 'react';
+import { authRoles } from 'app/auth';
 import { Redirect } from 'react-router-dom';
 
 export const AcademyAppConfig = {
     settings: {
         layout: {
+            style: 'layout1',
             config: {
                 navbar        : {
-                    display: true
+                    display: true,
+                    folded: true,
+			        position: 'left'
                 },
                 toolbar       : {
-                    display: true
+                    display: false,
+                    style: "fixed"
                 },
                 footer        : {
                     display: false
                 },
                 leftSidePanel : {
-                    display: true
+                    display: false
                 },
                 rightSidePanel: {
                     display: false
@@ -23,6 +28,9 @@ export const AcademyAppConfig = {
             }
         }
     },
+    customScrollbars: false,
+    animations: true,
+    auth: authRoles.user,
     routes  : [
         {
             path     : '/apps/academy/courses/:courseId/:courseHandle?',

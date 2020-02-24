@@ -14,15 +14,15 @@ const config = {
 			position: 'below'
 		},
 		footer: {
-			display: true,
+			display: false,
 			style: 'fixed',
 			position: 'below'
 		},
 		leftSidePanel: {
-			display: true
+			display: false
 		},
 		rightSidePanel: {
-			display: true
+			display: false
 		}
 	},
 	form: {

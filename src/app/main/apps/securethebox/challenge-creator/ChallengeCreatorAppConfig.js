@@ -4,18 +4,22 @@ import {authRoles} from 'app/auth';
 export const ChallengeCreatorAppConfig = {
     settings: {
         layout: {
+            style: 'layout1',
             config: {
                 navbar        : {
-                    display: true
+                    display: true,
+                    folded: true,
+			        position: 'left'
                 },
                 toolbar       : {
-                    display: true
+                    display: false,
+                    style: "fixed"
                 },
                 footer        : {
                     display: false
                 },
                 leftSidePanel : {
-                    display: true
+                    display: false
                 },
                 rightSidePanel: {
                     display: false
@@ -23,6 +27,8 @@ export const ChallengeCreatorAppConfig = {
             }
         }
     },
+    customScrollbars: false,
+    animations: true,
     auth   : authRoles.user,
     routes  : [
         {

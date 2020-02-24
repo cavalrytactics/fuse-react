@@ -1,5 +1,5 @@
 import { authRoles } from 'app/auth';
-import Login from './Login';
+import LoginPage from '../pages/auth/login/LoginPage';
 
 const LoginConfig = {
 	settings: {
@@ -27,7 +27,7 @@ const LoginConfig = {
 	routes: [
 		{
 			path: '/login',
-			component: Login
+			component: LoginPage
 		}
 	]
 };

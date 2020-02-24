@@ -1,8 +1,8 @@
 import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -56,7 +56,7 @@ function UserNavbarHeader(props) {
 			<Typography className="email text-13 mt-8 opacity-50 whitespace-no-wrap" color="inherit">
 				{user.data.email}
 			</Typography>
-			<Avatar
+			{/* <Avatar
 				className={clsx(classes.avatar, 'avatar')}
 				alt="user photo"
 				src={
@@ -64,7 +64,7 @@ function UserNavbarHeader(props) {
 						? user.data.photoURL
 						: 'assets/images/avatars/profile.jpg'
 				}
-			/>
+			/> */}
 		</AppBar>
 	);
 }

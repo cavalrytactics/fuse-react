@@ -19,12 +19,14 @@ const navigationConfig = [
                 'id'   : 'challenges-view',
                 'title': 'View Challenges',
                 'type' : 'item',
+                'icon' : 'fitness_center',
                 'url'  : '/apps/academy/courses'
             },
             {
                 'id'   : 'challenges-create',
                 'title': 'Create Challenge',
                 'type' : 'item',
+                'icon' : 'dashboard',
                 'url'  : '/apps/challenge-creator/create'
             },
         ]
@@ -33,7 +35,8 @@ const navigationConfig = [
         'id'      : 'subscription',
         'title'   : 'Subscription',
         'type'    : 'item',
-        'url'     : '/subscription'
+        'icon'    : 'credit_card',
+        'url'     : '/pricing'
     },
 ];
 

@@ -2,19 +2,19 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useRef, useState } from 'react'
+import { Canvas, useFrame } from 'react-three-fiber'
 import Particles from 'react-particles-js';
 import Grid from '@material-ui/core/Grid';
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
 import { Business, EmojiEvents, CloudDone, School } from '@material-ui/icons';
-import { Canvas, useFrame } from 'react-three-fiber'
+
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1,
 		// backgroundColor: "#272822"
 		backgroundColor: "#1e1f1c",
-		overflowY: 'scroll'
 	},
 	intro: {
 		height: "100vh",
@@ -144,7 +144,6 @@ function LandingPage() {
 						>
 
 							<Grid item xs={6}>
-
 								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '50px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									Secure The Box
 								</div>
@@ -187,7 +186,7 @@ function LandingPage() {
 								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									<ul>
 										<li>
-											Secure The Box s an online platform allowing an individual or team to access a simulated business environment consisting of several services.
+											<span style={{ color: "#66D9EF" }}></span>Secure The Box s an online platform allowing an individual or team to access a <span style={{ color: "#66D9EF" }}>simulated business environment</span> consisting of several services.
 										</li>
 										<li>
 											The objective is to secure the environment and solve problems while being attacked by industry professional Penetration Testers and scripted Bots.
@@ -255,9 +254,9 @@ function LandingPage() {
 								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									<ul>
 										<li>
-											Join Secure The Box BETA with an invite code.
+											Join Secure The Box with an Invite Code
 										</li>
-										<li>
+										<li style={{paddingTop:20}}>
 											<InviteButton />
 										</li>
 									</ul>
@@ -281,7 +280,7 @@ function LandingPage() {
 							</div>
 								<br />
 								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-									Cavalry Tactics, Inc.
+									<span style={{ color: "#F92672" }}>Cavalry Tactics, Inc.</span>
 								</div>
 								<br />
 								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>

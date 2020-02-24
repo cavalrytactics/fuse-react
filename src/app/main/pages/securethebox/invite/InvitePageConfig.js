@@ -9,7 +9,8 @@ const ComingSoonPageConfig = {
                     display: false
                 },
                 toolbar       : {
-                    display: false
+                    display: true,
+                    style: "fixed"
                 },
                 footer        : {
                     display: false

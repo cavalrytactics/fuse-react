@@ -101,7 +101,7 @@ function FirebaseLoginTab(props) {
 					disabled={!isFormValid}
 					value="firebase"
 				>
-					Log in
+					Log in with Firebase
 				</Button>
 			</Formsy>
 		</div>

@@ -35,7 +35,10 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(0),
 		textAlign: 'center',
 		color: "white",
-		backgroundColor: "transparent"
+		backgroundColor: "transparent",
+		'& .MuiInputBase-input': {
+			color: 'white',
+		},
 	},
 	about: {
 		height: "50vh",
@@ -145,11 +148,12 @@ function LandingPage() {
 										onSubmit={handleSubmit}
 									>
 										<TextField
-											style={{ backgroundColor: "#272822", borderColor: "blue", color: "green", letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}
+											style={{ backgroundColor: "#272822", borderColor: "blue", color: "white", letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}
 											label="Code"
 											autoFocus
 											type="password"
 											name="code"
+											color="secondary"
 											value={form.code}
 											onChange={handleChange}
 											variant="outlined"

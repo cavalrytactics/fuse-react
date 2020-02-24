@@ -1,6 +1,7 @@
 import React from 'react';
+import { authRoles } from 'app/auth';
 
-const ComingSoonPageConfig = {
+const LandingPageConfig = {
 	settings: {
         layout: {
 			style: 'layout1',
@@ -9,7 +10,8 @@ const ComingSoonPageConfig = {
                     display: false
                 },
                 toolbar       : {
-                    display: false
+                    display: true,
+                    style: "fixed"
                 },
                 footer        : {
                     display: false
@@ -32,12 +34,14 @@ const ComingSoonPageConfig = {
             footer : 'mainThemeDark'
         }
     },
+    auth: authRoles.onlyGuest,
 	routes: [
 		{
-			path: '/',
+            path: '/landing',
+            exact: true,
 			component: React.lazy(() => import('./LandingPage'))
 		}
 	]
 };
 
-export default ComingSoonPageConfig;
+export default LandingPageConfig;
