@@ -40,14 +40,3 @@ const routes = [
 ];
 
 export default routes;
-
-
-// ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-//     {
-//         path     : '/',
-//         exact    : true,
-//         component: () => <Redirect to="/apps/academy/courses"/>
-//     },
-//     {
-//         component: () => <Redirect to="/pages/errors/error-404"/>
-//     }

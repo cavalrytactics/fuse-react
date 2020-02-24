@@ -1,21 +1,27 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import { useForm } from '@fuse/hooks';
+// import { useForm } from '@fuse/hooks';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // import Checkbox from '@material-ui/core/Checkbox';
 // import Divider from '@material-ui/core/Divider';
-import FormControl from '@material-ui/core/FormControl';
+// import FormControl from '@material-ui/core/FormControl';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React, { useRef, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Canvas, useFrame } from 'react-three-fiber'
 import Particles from 'react-particles-js';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import * as authActions from 'app/auth/store/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import Formsy from 'formsy-react';
+import { TextFieldFormsy } from '@fuse/core/formsy';
+import Icon from '@material-ui/core/Icon';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -57,20 +63,37 @@ function Box(props) {
 
 function LoginPage() {
 	const classes = useStyles();
+	const dispatch = useDispatch()
+	const login = useSelector(({ auth }) => auth.login);
+	const [isFormValid, setIsFormValid] = useState(false);
+	const formRef = useRef(null);
 
-	const { form, handleChange, resetForm } = useForm({
-		email: '',
-		password: '',
-		remember: true
-	});
+	// const { form, handleChange, resetForm } = useForm({
+	// 	email: '',
+	// 	password: '',
+	// 	remember: true
+	// });
 
-	function isFormValid() {
-		return form.email.length > 0 && form.password.length > 0;
+	useEffect(() => {
+		if (login.error && (login.error.username || login.error.password)) {
+			formRef.current.updateInputsWithError({
+				...login.error
+			});
+			disableButton();
+		}
+	}, [login.error]);
+
+	function disableButton() {
+		setIsFormValid(false);
 	}
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		resetForm();
+	function enableButton() {
+		setIsFormValid(true);
+	}
+
+	function handleSubmit(model) {
+		dispatch(authActions.submitLoginWithFireBase(model));
+
 	}
 
 	return (
@@ -108,8 +131,8 @@ function LoginPage() {
 			/>
 			<div className="flex flex-col items-center justify-center w-full">
 				<FuseAnimate animation="transition.expandIn">
-					<Card className="w-full max-w-384" style={{backgroundColor: "#333333"}}>
-						<CardContent className="flex flex-col items-center justify-center p-32" style={{backgroundColor: "#333333"}}>
+					<Card className="w-full max-w-384" style={{ backgroundColor: "#333333" }}>
+						<CardContent className="flex flex-col items-center justify-center p-32" style={{ backgroundColor: "#333333" }}>
 							{/* <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" /> */}
 							<Canvas className="w-128 m-32">
 								<ambientLight />
@@ -120,78 +143,74 @@ function LoginPage() {
 								Login to your account
 							</Typography>
 
-							<form
-								name="loginForm"
-								noValidate
+							<Formsy
+								onValidSubmit={handleSubmit}
+								onValid={enableButton}
+								onInvalid={disableButton}
+								ref={formRef}
 								className="flex flex-col justify-center w-full"
-								onSubmit={handleSubmit}
 							>
-								<TextField
+								<TextFieldFormsy
 									className="mb-16"
-									color="secondary" 
+									type="text"
+									name="username"
 									label="Email"
-									autoFocus
-									type="email"
-									name="email"
-									value={form.email}
-									onChange={handleChange}
+									validations={{
+										minLength: 4
+									}}
+									validationErrors={{
+										minLength: 'Min character length is 4'
+									}}
+									InputProps={{
+										endAdornment: (
+											<InputAdornment position="end">
+												<Icon className="text-20" color="action">
+													email
+												</Icon>
+											</InputAdornment>
+										)
+									}}
 									variant="outlined"
 									required
-									fullWidth
 								/>
 
-								<TextField
+								<TextFieldFormsy
 									className="mb-16"
-									label="Password"
-									color="secondary" 
 									type="password"
 									name="password"
-									value={form.password}
-									onChange={handleChange}
+									label="Password"
+									validations={{
+										minLength: 4
+									}}
+									validationErrors={{
+										minLength: 'Min character length is 4'
+									}}
+									InputProps={{
+										endAdornment: (
+											<InputAdornment position="end">
+												<Icon className="text-20" color="action">
+													vpn_key
+												</Icon>
+											</InputAdornment>
+										)
+									}}
 									variant="outlined"
 									required
-									fullWidth
 								/>
 
-								<div className="flex items-center justify-between">
-									<FormControl>
-										{/* <FormControlLabel
-											className="label"
-											control={
-												<Checkbox
-													name="remember"
-													checked={form.remember}
-													onChange={handleChange}
-												/>
-											}
-											label="Remember Me"
-										/> */}
-									</FormControl>
-
-									<Link className="font-medium" to="/forgot-password" style={{ color: "#F92672", letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-										Forgot Password?
-									</Link>
-								</div>
-
 								<Button
+									type="submit"
 									variant="contained"
 									color="secondary"
-									className="w-224 mx-auto mt-16"
+									className="w-full mx-auto normal-case mt-16"
 									aria-label="LOG IN"
-									disabled={!isFormValid()}
-									type="submit"
-									style={{textTransform: "none", color: "#1e1f1c", letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}
+									disabled={!isFormValid}
+									value="firebase"
 								>
-									Login
+									Log in
 								</Button>
-							</form>
+							</Formsy>
 
-							<div className="flex flex-col items-center justify-center pt-32 pb-24">
-								<span className="font-medium" style={{ color: "white", letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>Don't have an account?</span>
-								<Link className="font-medium" to="/register" style={{ color: "#66D9EF", letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-									Create an account
-								</Link>
-							</div>
 						</CardContent>
 					</Card>
 				</FuseAnimate>

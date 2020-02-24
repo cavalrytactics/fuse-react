@@ -123,7 +123,7 @@ export default class Wizard extends React.Component {
             >
               Reset Form
             </Button>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
+            <pre style={{overflow:"hidden"}}>{JSON.stringify(values, 0, 2)}</pre>
           </form>
         )}
       </Form>

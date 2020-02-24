@@ -31,7 +31,7 @@ function PricingStyle1Page() {
 					<div className="text-center my-128 mx-24">
 						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
 							<Typography variant="h2" color="inherit" className="font-light">
-								Simple Pricing!
+								Pricing
 							</Typography>
 						</FuseAnimate>
 
@@ -41,8 +41,7 @@ function PricingStyle1Page() {
 								color="inherit"
 								className="opacity-75 mt-16 mx-auto max-w-512"
 							>
-								The most advanced customer support tools with a simple and affordable pricing. And you
-								can always try for 30 days, free!
+								All plans include Unlimited interview invitations, Spectator mode, downloadable reports, and access to all user profiles.
 							</Typography>
 						</FuseAnimate>
 					</div>
@@ -57,11 +56,11 @@ function PricingStyle1Page() {
 						}}
 						className="flex items-center justify-center flex-wrap"
 					>
-						<div className="w-full max-w-320 sm:w-1/3 p-12">
+						<div className="w-full max-w-550 sm:w-1/3 p-12">
 							<Card square>
 								<div className={clsx(classes.cardHeader, 'px-24 py-16')}>
 									<Typography variant="subtitle1" color="inherit">
-										BASIC
+										1 MONTH
 									</Typography>
 								</div>
 
@@ -71,7 +70,7 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-light leading-none">4</Typography>
+											<Typography className="text-72 mx-4 font-light leading-none">8,500</Typography>
 											<Typography variant="subtitle1" color="textSecondary">
 												/ month
 											</Typography>
@@ -82,16 +81,7 @@ function PricingStyle1Page() {
 
 									<div className="flex flex-col">
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">10</span>
-											Projects
-										</Typography>
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">10</span>
-											Pages
-										</Typography>
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">100</span>
-											Mb Disk Space
+											Billed <span className="font-bold mx-4">$8,500.00</span> every month
 										</Typography>
 									</div>
 								</CardContent>
@@ -104,8 +94,8 @@ function PricingStyle1Page() {
 							</Card>
 						</div>
 
-						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card raised square>
+						<div className="w-full max-w-550 sm:w-1/3 p-12">
+							<Card square>
 								<div
 									className={clsx(
 										classes.cardHeader,
@@ -113,57 +103,10 @@ function PricingStyle1Page() {
 									)}
 								>
 									<Typography variant="subtitle1" color="inherit">
-										STANDART
+										ANNUAL
 									</Typography>
 									<Typography variant="caption" color="inherit">
-										Save 15%
-									</Typography>
-								</div>
-
-								<CardContent className="p-32">
-									<div className="flex justify-center">
-										<Typography variant="h5" color="textSecondary">
-											$
-										</Typography>
-										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-light leading-none">8</Typography>
-											<Typography variant="subtitle1" color="textSecondary">
-												/ month
-											</Typography>
-										</div>
-									</div>
-
-									<Divider className="my-32" />
-
-									<div className="flex flex-col">
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">20</span>
-											Projects
-										</Typography>
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">20</span>
-											Pages
-										</Typography>
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">200</span>
-											Mb Disk Space
-										</Typography>
-									</div>
-								</CardContent>
-
-								<div className="flex justify-center pb-32">
-									<Button variant="contained" color="secondary" className="w-128">
-										BUY NOW
-									</Button>
-								</div>
-							</Card>
-						</div>
-
-						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card square>
-								<div className={clsx(classes.cardHeader, 'px-24 py-16')}>
-									<Typography variant="subtitle1" color="inherit">
-										ADVANCED
+										Save 30%
 									</Typography>
 								</div>
 
@@ -173,9 +116,9 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-light leading-none">12</Typography>
+											<Typography className="text-72 mx-4 font-light leading-none">70,560</Typography>
 											<Typography variant="subtitle1" color="textSecondary">
-												/ month
+												/ year
 											</Typography>
 										</div>
 									</div>
@@ -184,16 +127,7 @@ function PricingStyle1Page() {
 
 									<div className="flex flex-col">
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">40</span>
-											Projects
-										</Typography>
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">40</span>
-											Pages
-										</Typography>
-										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">500</span>
-											Mb Disk Space
+											Billed <span className="font-bold mx-4">$70,560.00</span> every 12 months
 										</Typography>
 									</div>
 								</CardContent>
@@ -214,34 +148,42 @@ function PricingStyle1Page() {
 
 						<div className="flex flex-wrap w-full">
 							<div className="w-full sm:w-1/2 p-24">
-								<Typography className="text-20 mb-8">How does free trial work?</Typography>
+								<Typography className="text-20 mb-8">Is there a free trial?</Typography>
 								<Typography className="text-16" color="textSecondary">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a diam nec augue
-									tincidunt accumsan. In dignissim laoreet ipsum eu interdum.
+									Hosting the infrastructure of the challenges are not free, so we are unable to provide free trials.
+								</Typography>
+							</div>
+							<div className="w-full sm:w-1/2 p-24">
+								<Typography className="text-20 mb-8">What does unlimited interview invitations mean?</Typography>
+								<Typography className="text-16" color="textSecondary">
+									You can invite as many candidates you want to take the challenges.
+									This offer is limited per company. 
 								</Typography>
 							</div>
 
 							<div className="w-full sm:w-1/2 p-24">
 								<Typography className="text-20 mb-8">Can I cancel any time?</Typography>
 								<Typography className="text-16" color="textSecondary">
-									Aliquam erat volutpat. Etiam luctus massa ex, at tempus tellus blandit quis. Sed
-									quis neque tellus. Donec maximus ipsum in malesuada hendrerit.
+									Yes, but you will be charged $400.00 per day if challenge environment has been active for more than 30 minutes. <br/>
+									You will receive the difference of the what you paid.
 								</Typography>
 							</div>
 
 							<div className="w-full sm:w-1/2 p-24">
-								<Typography className="text-20 mb-8">What happens after my trial ended?</Typography>
+								<Typography className="text-20 mb-8">What happens after my subscription ended?</Typography>
 								<Typography className="text-16" color="textSecondary">
-									Aliquam erat volutpat. Etiam luctus massa ex, at tempus tellus blandit quis. Sed
-									quis neque tellus. Donec maximus ipsum in malesuada hendrerit.
+									All reports about your interviews will still be available.<br/>
+									You will not be able to invite users or be able to create/modify/start challenges.<br/>
+									If you would like to continue your subscription, you can purchase a plan at any time.
 								</Typography>
 							</div>
 
 							<div className="w-full sm:w-1/2 p-24">
 								<Typography className="text-20 mb-8">Can I have a discount?</Typography>
 								<Typography className="text-16" color="textSecondary">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a diam nec augue
-									tincidunt accumsan. In dignissim laoreet ipsum eu interdum.
+									There are no discounts. We believe the product is priced fairly.<br/>
+									Successful referral bonuses are normally $5,000 - $10,000 per employee (This is money we never see).<br/>
+									Many recruiters use this platform to scale interview process and find the best in the world.
 								</Typography>
 							</div>
 						</div>

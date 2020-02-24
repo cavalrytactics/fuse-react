@@ -6,10 +6,9 @@ import Particles from 'react-particles-js';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import 'react-typist/dist/Typist.css';
-import bcrypt from 'bcryptjs'
-const config = require('../../../../../secrets/key')
+// import cryptojs from 'crypto-js';
 
-const myPlaintextPassword = 'stb';
+// const config = require('../../../../../secrets/key')
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -18,11 +17,9 @@ var yyyy = today.getFullYear();
 
 today = mm + '-' + dd + '-' + yyyy;
 
-var salt = bcrypt.genSaltSync(10);
-console.log(salt)
-var hash = bcrypt.hashSync(myPlaintextPassword+"-"+today+"-"+config.inviteSecret);
-console.log(hash)
-console.log("stb-02-23-2020-$2y$12$iYRdBq.NS/BxoJN4cY11gOV6IzFv.Lw4E9Gt./tcV0M8hPauZmMmi")
+
+
+
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -83,11 +80,17 @@ function LandingPage() {
 
 	function handleSubmit(ev) {
 		ev.preventDefault();
-		if (form.code === hash){
-			console.log("True")
-		}else{
-			console.log("False")
-		}
+		// secretCreds = config.invitePassword+"-"+today
+		// var ciphertext = cryptojs.AES.encrypt(secretCreds, config.inviteSecret).toString();
+
+		// var bytes = cryptojs.AES.decrypt(ciphertext, config.inviteSecret);
+		// console.log(form.code, ciphertext)
+
+		// if (bytes.toString(cryptojs.enc.Utf8) === config.invitePassword+"-"+today){
+		// 	console.log("True", cryptojs.enc.Utf8, config.invitePassword+"-"+today)
+		// }else{
+		// 	console.log("False")
+		// }
 		resetForm();
 	}
 
@@ -151,7 +154,6 @@ function LandingPage() {
 											style={{ backgroundColor: "#272822", borderColor: "blue", color: "white", letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}
 											label="Code"
 											autoFocus
-											type="password"
 											name="code"
 											color="secondary"
 											value={form.code}

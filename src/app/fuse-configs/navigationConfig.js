@@ -13,7 +13,6 @@ const navigationConfig = [
         'id'      : 'creator',
         'title'   : 'Challenges',
         'type'    : 'group',
-        'url'     : '/apps/challenge-creator/create',
         'children': [
             {
                 'id'   : 'challenges-view',
@@ -34,10 +33,31 @@ const navigationConfig = [
     {
         'id'      : 'subscription',
         'title'   : 'Subscription',
-        'type'    : 'item',
-        'icon'    : 'credit_card',
-        'url'     : '/pricing'
+        'type'    : 'group',
+        'children': [
+            {
+                'id'      : 'subscription',
+                'title'   : 'Subscription',
+                'type'    : 'item',
+                'icon'    : 'credit_card',
+                'url'     : '/pricing'
+            },
+        ],
     },
+    {
+        'id'      : 'account',
+        'title'   : 'Account',
+        'type'    : 'group',
+        'children': [
+            {
+                'id'      : 'logout',
+                'title'   : 'Logout',
+                'type'    : 'item',
+                'icon'    : 'account_circle',
+                'url'     : '/logout'
+            },
+        ],
+    }
 ];
 
 

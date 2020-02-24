@@ -31,14 +31,14 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: "#272822"
 	},
 	features: {
-		height: "50vh",
+		height: "60vh",
 		padding: theme.spacing(0),
 		textAlign: 'center',
 		color: "white",
 		backgroundColor: "#333333"
 	},
 	join: {
-		height: "30vh",
+		height: "50vh",
 		padding: theme.spacing(0),
 		textAlign: 'center',
 		color: "white",
@@ -178,17 +178,17 @@ function LandingPage() {
 							className={classes.about}
 						>
 							<Grid item xs>{}</Grid>
-							<Grid item xs={6} >
-								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+							<Grid item xs={10} >
+								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '20px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									About <span style={{ color: "#A6E22E" }}>Secure The Box</span>
 								</div>
 								<br />
 								<div variant="h4" style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									<ul>
 										<li>
-											<span style={{ color: "#66D9EF" }}></span>Secure The Box s an online platform allowing an individual or team to access a <span style={{ color: "#66D9EF" }}>simulated business environment</span> consisting of several services.
+											<span style={{ color: "#66D9EF" }}>Secure The Box</span> is an online platform allowing an individual or team to access a <span style={{ color: "#66D9EF" }}>simulated business environment</span> consisting of several real-world services.
 										</li>
-										<li>
+										<li style={{ paddingTop: 10 }}>
 											The objective is to secure the environment and solve problems while being attacked by industry professional Penetration Testers and scripted Bots.
 										</li>
 									</ul>
@@ -197,7 +197,7 @@ function LandingPage() {
 							<Grid item xs>{}</Grid>
 						</Grid>
 					</Grid>
-					<Grid item xs={12}>
+					<Grid item xs={12} >
 						<Grid container
 							spacing={0}
 							direction="row"
@@ -207,33 +207,41 @@ function LandingPage() {
 						>
 							<Grid item xs={6} sm={3}>
 								<Business style={{ fontSize: 40, color: "#FD971F" }} />
-								<div style={{ letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '20px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									Real World
-							</div>
-								These environments simulate real company environments at a small scale to give you real world attack scenarios.
-						</Grid>
+								</div>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+									These environments simulate real company environments at a small scale to give you real world attack scenarios.
+								</div>
+							</Grid>
 							<Grid item xs={6} sm={3}>
 								<EmojiEvents style={{ fontSize: 40, color: "#A6E22E" }} />
-								<div style={{ letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '20px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									Rankings
-							</div>
-								Compete with other users to reach the top of the Hall of Fame and show off your progress with many different ranks.
-						</Grid>
+								</div>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+									Compete with other users to reach the top of the Hall of Fame and show off your progress with many different ranks.
+								</div>
+							</Grid>
 							<Grid item xs={12}>{}</Grid>
 							<Grid item xs={6} sm={3}>
 								<School style={{ fontSize: 40, color: "#F92672" }} />
-								<div style={{ letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '20px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									Careers
-							</div>
-								Apply for security-related job openings or use Secure The Box as a platform to find talent for your own company.
-						</Grid>
+								</div>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+									Apply for security-related job openings or use Secure The Box as a platform to find talent for your own company.
+								</div>
+							</Grid>
 							<Grid item xs={6} sm={3}>
 								<CloudDone style={{ fontSize: 40, color: "#66D9EF" }} />
-								<div style={{ letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '20px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									Dedicated Labs
-							</div>
-								Rent a private lab for your company or university, fully managed and tailored to your requirements.
-						</Grid>
+								</div>
+								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
+									Rent a private lab for your company or university, fully managed and tailored to your requirements.
+								</div>
+							</Grid>
 						</Grid>
 					</Grid>
 					<Grid item xs={12}>
@@ -256,7 +264,7 @@ function LandingPage() {
 										<li>
 											Join Secure The Box with an Invite Code
 										</li>
-										<li style={{paddingTop:20}}>
+										<li style={{ paddingTop: 20 }}>
 											<InviteButton />
 										</li>
 									</ul>
@@ -277,18 +285,14 @@ function LandingPage() {
 							<Grid item xs={6} >
 								<div style={{ letterSpacing: '-0.5px', fontSize: '25px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
 									Contact
-							</div>
-								<br />
-								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-									<span style={{ color: "#F92672" }}>Cavalry Tactics, Inc.</span>
 								</div>
 								<br />
 								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-									<span style={{ color: "#66D9EF" }}>cavalrytacticsinc@protonmail.com</span>
+									<span style={{ color: "#66D9EF" }}>support@securethebox.us</span>
 								</div>
 								<br />
 								<div style={{ letterSpacing: '-0.5px', fontSize: '14px', fontWeight: 350, fontFamily: "Menlo,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"" }}>
-									<span>Copyright © <span style={{ color: "#A6E22E" }}>Secure The Box</span> {new Date().getFullYear()}</span>
+									<span>Copyright © <br /><span style={{ color: "#A6E22E" }}>Secure The Box</span> {new Date().getFullYear()}</span>
 								</div>
 							</Grid>
 							<Grid item xs>{}</Grid>

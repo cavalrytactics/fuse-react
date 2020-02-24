@@ -37,7 +37,7 @@ const LandingPageConfig = {
     auth: authRoles.onlyGuest,
 	routes: [
 		{
-            path: '/landing',
+            path: '/',
             exact: true,
 			component: React.lazy(() => import('./LandingPage'))
 		}

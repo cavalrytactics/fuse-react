@@ -4,13 +4,16 @@ import { authRoles } from 'app/auth';
 const PricingStyle1PageConfig = {
 	settings: {
         layout: {
-			style: 'layout1',
+            style: 'layout1',
             config: {
                 navbar        : {
-                    display: false
+                    display: true,
+                    folded: true,
+			        position: 'left'
                 },
                 toolbar       : {
                     display: false,
+                    style: "fixed"
                 },
                 footer        : {
                     display: false
@@ -22,18 +25,11 @@ const PricingStyle1PageConfig = {
                     display: false
                 }
             }
-		},
-		customScrollbars: false,
-		animations: true,
-		direction: 'ltr',
-        theme           : {
-            main   : 'default',
-            navbar : 'mainThemeDark',
-            toolbar: 'mainThemeLight',
-            footer : 'mainThemeDark'
         }
-	},
-	auth: authRoles.user,
+    },
+    customScrollbars: false,
+    animations: true,
+    auth   : authRoles.user,
 	routes: [
 		{
 			path: '/pricing',
