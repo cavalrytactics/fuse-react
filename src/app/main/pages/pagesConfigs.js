@@ -25,8 +25,10 @@ import ModernSearchPageConfig from './search/modern/ModernSearchPageConfig';
 import SecuretheboxComingSoonPageConfig from './securethebox/coming-soon/ComingSoonPageConfig';
 import SecuretheboxLandingPageConfig from './securethebox/landing/LandingPageConfig';
 import SecuretheboxInvitePageConfig from './securethebox/invite/InvitePageConfig';
+import SecuretheboxManagerPageConfig from './securethebox/manager/ManagerPageConfig';
 
 const pagesConfigs = [
+	SecuretheboxManagerPageConfig,
 	SecuretheboxInvitePageConfig,
 	SecuretheboxLandingPageConfig,
 	SecuretheboxComingSoonPageConfig,

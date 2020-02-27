@@ -15,6 +15,20 @@
         }
       },
       {
+        "source": "/graphql**",
+        "run": {
+          "serviceId": "securethebox-server",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/graphql/**",
+        "run": {
+          "serviceId": "securethebox-server",
+          "region": "us-central1"
+        }
+      },
+      {
         "source": "!/api/**",
         "destination": "/index.html"
       }
