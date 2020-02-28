@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "securethebox-client"
+  },
+  "targets": {
+    "securethebox-client": {
+      "hosting": {
+        "stb-site-prod": [
+          "securethebox-client"
+        ]
+      }
+    }
   }
 }
