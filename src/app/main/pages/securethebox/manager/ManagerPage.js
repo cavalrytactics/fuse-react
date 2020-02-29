@@ -44,7 +44,6 @@ const useStyles = makeStyles(theme => ({
 
 
 function ManagerPage() {
-	const classes = useStyles();
 
 	return (
 		<div>
