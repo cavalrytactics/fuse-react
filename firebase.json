@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "stb-site-prod",
     "public": "build",
     "ignore": [
       "firebase.json",
