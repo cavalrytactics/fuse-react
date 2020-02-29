@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles';
 import React from 'react'
 import 'react-typist/dist/Typist.css';
 import {
@@ -33,14 +32,6 @@ const environment = new Environment({
 	network: Network.create(fetchQuery),
 	store: new Store(new RecordSource()),
 });
-
-const useStyles = makeStyles(theme => ({
-	root: {
-		flexGrow: 1,
-		// backgroundColor: "#272822"
-		backgroundColor: "#1e1f1c",
-	},
-}));
 
 
 function ManagerPage() {
