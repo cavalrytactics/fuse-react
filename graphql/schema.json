@@ -57,7 +57,7 @@ type CategoryTypeEdge {
 input ClusterInput {
   id: ID
   name: String
-  value: String
+  status: String
 }
 
 type ClusterType implements Node {
@@ -183,6 +183,7 @@ input CourseInput {
   length: Int
   totalSteps: Int
   slug: String
+  steps: [String]
 }
 
 type CourseType implements Node {
@@ -198,6 +199,7 @@ type CourseType implements Node {
   status: String
   title: String
   totalSteps: Int
+  steps(before: String, after: String, first: Int, last: Int, ID: ID, content: String, id: ID, title: String): StepTypeConnection
 }
 
 type CourseTypeConnection {
@@ -240,6 +242,8 @@ type CreateContainerMutation {
 
 type CreateCourseMutation {
   course: CourseType
+  category: CategoryType
+  cluster: ClusterType
 }
 
 type CreateCredentialMutation {
@@ -281,6 +285,10 @@ type CreateServiceMutation {
 
 type CreateSolutionMutation {
   solution: SolutionType
+}
+
+type CreateStepMutation {
+  step: StepType
 }
 
 type CreateSubscriptionMutation {
@@ -402,6 +410,10 @@ type DeleteSolutionMutation {
   success: Boolean
 }
 
+type DeleteStepMutation {
+  success: Boolean
+}
+
 type DeleteSubscriptionMutation {
   success: Boolean
 }
@@ -509,7 +521,7 @@ type Mutations {
   createCompetency(competencyData: CompetencyInput!): CreateCompetencyMutation
   createContainer(containerData: ContainerInput!): CreateContainerMutation
   createConfiguration(configurationData: ConfigurationInput!): CreateConfigurationMutation
-  createCourse(courseData: CourseInput!): CreateCourseMutation
+  createCourse(categoryData: CategoryInput, clusterData: ClusterInput, courseData: CourseInput!): CreateCourseMutation
   createCredential(credentialData: CredentialInput!): CreateCredentialMutation
   createDummy(dummyData: DummyInput!): CreateDummyMutation
   createJob(jobData: JobInput!): CreateJobMutation
@@ -520,6 +532,7 @@ type Mutations {
   createScope(scopeData: ScopeInput!): CreateScopeMutation
   createService(applicationData: ApplicationInput, serviceData: ServiceInput!): CreateServiceMutation
   createSolution(solutionData: SolutionInput!): CreateSolutionMutation
+  createStep(stepData: StepInput!): CreateStepMutation
   createSubscription(subscriptionData: SubscriptionInput!): CreateSubscriptionMutation
   createTeam(teamData: TeamInput!): CreateTeamMutation
   createTopic(topicData: TopicInput!): CreateTopicMutation
@@ -541,10 +554,11 @@ type Mutations {
   updateRank(rankData: RankInput!): UpdateRankMutation
   updateReport(reportData: ReportInput!): UpdateReportMutation
   updateScope(scopeData: ScopeInput!): UpdateScopeMutation
-  updateService(applicationData: ApplicationInput, serviceData: ServiceInput!): UpdateServiceMutation
+  updateService(serviceData: ServiceInput!): UpdateServiceMutation
   updateServiceAddApplication(applicationData: ApplicationInput, serviceData: ServiceInput!): UpdateServiceAddApplicationMutation
   updateServiceDeleteApplication(applicationData: ApplicationInput, serviceData: ServiceInput!): UpdateServiceDeleteApplicationMutation
   updateSolution(solutionData: SolutionInput!): UpdateSolutionMutation
+  updateStep(stepData: StepInput!): UpdateStepMutation
   updateSubscription(subscriptionData: SubscriptionInput!): UpdateSubscriptionMutation
   updateTeam(teamData: TeamInput!): UpdateTeamMutation
   updateTopic(topicData: TopicInput!): UpdateTopicMutation
@@ -568,6 +582,7 @@ type Mutations {
   deleteScope(id: ID!): DeleteScopeMutation
   deleteService(id: ID!): DeleteServiceMutation
   deleteSolution(id: ID!): DeleteSolutionMutation
+  deleteStep(id: ID!): DeleteStepMutation
   deleteSubscription(id: ID!): DeleteSubscriptionMutation
   deleteTeam(id: ID!): DeleteTeamMutation
   deleteTopic(id: ID!): DeleteTopicMutation
@@ -606,6 +621,7 @@ type Query {
   scopes(before: String, after: String, first: Int, last: Int, ID: ID, id: ID, label: String, value: String, topic: ID): ScopeTypeConnection
   services(before: String, after: String, first: Int, last: Int, ID: ID, id: ID, value: String): ServiceTypeConnection
   solutions(before: String, after: String, first: Int, last: Int, ID: ID, id: ID, value: String): SolutionTypeConnection
+  steps(before: String, after: String, first: Int, last: Int, ID: ID, content: String, id: ID, title: String): StepTypeConnection
   subscriptions(before: String, after: String, first: Int, last: Int, ID: ID, active: Boolean, id: ID, stripeCustomerId: String, stripeCustomerPlan: String, stripeCustomerSubscriptionId: String): SubscriptionTypeConnection
   teams(before: String, after: String, first: Int, last: Int, ID: ID, id: ID): TeamTypeConnection
   topics(before: String, after: String, first: Int, last: Int, ID: ID, id: ID, label: String, value: String, competency: ID): TopicTypeConnection
@@ -629,6 +645,7 @@ type Query {
   scopesList: [ScopeType]
   servicesList: [ServiceType]
   solutionsList: [SolutionType]
+  stepsList: [StepType]
   subscriptionsList: [SubscriptionType]
   teamsList: [TeamType]
   topicsList: [TopicType]
@@ -773,6 +790,29 @@ type SolutionTypeConnection {
 
 type SolutionTypeEdge {
   node: SolutionType
+  cursor: String!
+}
+
+input StepInput {
+  id: ID
+  name: String
+  value: String
+}
+
+type StepType implements Node {
+  ID: ID
+  content: String
+  id: ID!
+  title: String
+}
+
+type StepTypeConnection {
+  pageInfo: PageInfo!
+  edges: [StepTypeEdge]!
+}
+
+type StepTypeEdge {
+  node: StepType
   cursor: String!
 }
 
@@ -951,6 +991,10 @@ type UpdateServiceMutation {
 
 type UpdateSolutionMutation {
   solution: SolutionType
+}
+
+type UpdateStepMutation {
+  step: StepType
 }
 
 type UpdateSubscriptionMutation {

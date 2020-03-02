@@ -34,7 +34,7 @@ export const ChallengeCreatorAppConfig = {
         {
             path     : '/apps/challenge-creator/create',
             // component: React.lazy(() => import('./creator2/Create4'))
-            component: React.lazy(() => import('./creator/Create3'))
+            component: React.lazy(() => import('./creator/Create33'))
         }
     ]
 };

@@ -2,6 +2,8 @@
 
 /src/secrets/key*.js
 /src/secrets/*.json
+.history/*
+.history/
 
 # dependencies
 /node_modules

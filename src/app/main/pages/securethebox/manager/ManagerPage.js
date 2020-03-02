@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-typist/dist/Typist.css';
 import {
 	Environment,
 	Network,
@@ -41,11 +40,11 @@ function ManagerPage() {
 			<QueryRenderer
 				environment={environment}
 				query={graphql`
-			query ManagerPageQuery {
-				categoriesList {
-				  label
-				}  
-			  }
+				query ManagerPageQuery {
+					categoriesList {
+					label
+					}  
+				}
 				`}
 				variables={{}}
 				render={({ error, props }) => {
